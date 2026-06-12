@@ -1,0 +1,81 @@
+{#-
+  The KOF XI corner disc (top-right of the main menu), rebuilt 1:1
+  from the reference frame. R = 100 units = the grey plate:
+    · white halo ring to 1.38R carries the ring text; BOTH clip at
+      the screen frame's inner edge (they slide under the border —
+      only the hard disc overlaps the border)
+    · the hard disc is a light grey plate to 1.0R with an orange
+      outline ring at 1.02R; the dark rings at 0.766R (thick) and
+      0.625R (thin) and the green core sit ON the plate, and the
+      "segment gaps" are plate-grey cross lines that spin in sync
+      with the background disc's spokes (48s), painted over the rings
+    · green ring 0.36–0.51R with dark olive edges, warm cream center
+    · green ball at 50.6° / 1.205R in a plate-grey housing, joined to
+      the plate by a flared grey bridge (over the orange outline) —
+      one continuous grey piece, like the original
+    · ring text on a 1.07R circle, rotating, big chunky caps
+  viewBox starts at 0 0 (not centered) so the rotors' CSS
+  transform-origin 50% 50% resolves unambiguously to the center;
+  static geometry is translated to (145,145).
+
+  Three stacked divs share the same geometry, painted in DOM order:
+  clipped halo + ring text, then the hard disc, then the bridge +
+  ball (which the text slides under in turn).
+-#}
+<div class="cdisc cdisc--halo" aria-hidden="true">
+  <svg viewBox="0 0 290 290" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      {#- near-full circle; the endpoint must sit just BEFORE the start
+          along the clockwise travel (i.e. slightly below it) so the arc
+          resolves to the (145,145)-centered circle, not the mirror one -#}
+      <path id="cd-text-ring" d="M 38 145 A 107 107 0 1 1 38 145.01" fill="none"/>
+    </defs>
+    <g transform="translate(145 145)">
+      <circle r="138" class="cd-halo"/>
+    </g>
+    <g class="cd-rotor">
+      <text class="cd-text"><textPath href="#cd-text-ring" textLength="655" lengthAdjust="spacing">{{ (site.name + " " + site.name) | upper }}</textPath></text>
+    </g>
+  </svg>
+</div>
+
+<div class="cdisc" aria-hidden="true">
+  <svg viewBox="0 0 290 290" xmlns="http://www.w3.org/2000/svg">
+    <g transform="translate(145 145)">
+      <circle r="102" class="cd-outline"/>
+      <circle r="100" class="cd-plate"/>
+      <circle r="76.6" class="cd-ring cd-ring--thick"/>
+      <circle r="62.5" class="cd-ring cd-ring--thin"/>
+    </g>
+
+    <g class="cd-cross-rotor">
+      <g class="cd-cross" transform="translate(145 145) rotate(7)">
+        <line x1="-86" y1="0" x2="86" y2="0"/>
+        <line x1="0" y1="-86" x2="0" y2="86"/>
+      </g>
+    </g>
+
+    <g transform="translate(145 145)">
+      <circle r="54.3" class="cd-edge"/>
+      <circle r="51.2" class="cd-green"/>
+      <circle r="36.2" class="cd-edge"/>
+      <circle r="31.1" class="cd-center"/>
+    </g>
+  </svg>
+</div>
+
+<div class="cdisc cdisc--ball" aria-hidden="true">
+  <svg viewBox="0 0 290 290" xmlns="http://www.w3.org/2000/svg">
+    {#- flared bridge from the plate to the ball housing, along the
+        ball's radial; both ends hide under same-grey shapes so the
+        whole thing reads as one piece -#}
+    <g transform="translate(145 145) rotate(50.6)">
+      <path class="cd-bridge" d="M 88 -16 Q 102 -11 112 -10 L 112 10 Q 102 11 88 16 Z"/>
+    </g>
+    <g transform="translate(145 145)">
+      <circle cx="76.5" cy="93.1" r="17.5" class="cd-plate"/>
+      <circle cx="76.5" cy="93.1" r="12.6" class="cd-edge"/>
+      <circle cx="76.5" cy="93.1" r="11.1" class="cd-ball"/>
+    </g>
+  </svg>
+</div>

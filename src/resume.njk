@@ -1,0 +1,36 @@
+---
+layout: layouts/base.njk
+title: Résumé
+desc: Experience, skills and education — credits-screen style.
+bodyClass: page-resume
+stylesheet: /css/pages/resume.css
+---
+<main class="credits">
+  <span class="credits__blob credits__blob--a" aria-hidden="true"></span>
+  <span class="credits__blob credits__blob--b" aria-hidden="true"></span>
+  <span class="credits__blob credits__blob--c" aria-hidden="true"></span>
+
+  <h1 class="credits__heading credits__heading--main">Résumé</h1>
+
+  {%- for s in resume.sections %}
+  <section class="credits__section">
+    <h2 class="credits__heading">{{ s.heading }}</h2>
+    <ul class="credits__list">
+      {%- for e in s.entries %}
+      <li>
+        <span class="credits__t">{{ e.title }}</span>
+        <span class="credits__sep" aria-hidden="true">／</span>
+        <span class="credits__d">{{ e.detail }}</span>
+      </li>
+      {%- endfor %}
+    </ul>
+  </section>
+  {%- endfor %}
+
+  <p class="credits__actions">
+    <a class="pill pill--accent" href="{{ resume.pdf }}">Download PDF</a>
+    <a class="pill pill--exit" href="/">Exit</a>
+  </p>
+
+  <p class="credits__watermark" aria-hidden="true">{{ site.name }}</p>
+</main>

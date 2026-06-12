@@ -1,0 +1,151 @@
+/* ── Home: the MAIN MENU screen ─────────────────────────────────── */
+
+.page-home .screen__content {
+  justify-content: flex-end;
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.6rem 3rem;
+  padding: 0 clamp(1.2rem, 5vw, 4rem) clamp(1.2rem, 3vmin, 2.2rem);
+}
+
+.menu__list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.5rem, 1.5vmin, 0.95rem);
+  width: min(430px, 100%);
+}
+
+.menu__list--secondary {
+  width: min(330px, 100%);
+  margin-left: auto;
+}
+
+.menu__pill {
+  width: 100%;
+}
+
+/* white wedge marker on the active pill, like the PS2 cursor */
+.menu__pill::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-block: 0.4em solid transparent;
+  border-left: 0.55em solid #fff;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.menu__pill:hover::before,
+.menu__pill:focus-visible::before {
+  opacity: 1;
+}
+
+.menu__label { flex: 1; }
+
+.menu__chip {
+  font-size: 0.58em;
+  letter-spacing: 0.1em;
+  background: var(--gray-pill-deep);
+  border: 2px solid #fff;
+  border-radius: 999px;
+  padding: 0.05em 0.85em 0.1em;
+  text-shadow: none;
+}
+
+.menu__tagline {
+  padding: 0 clamp(1.4rem, 5.2vw, 4.2rem) clamp(1.6rem, 3.4vmin, 2.6rem);
+  color: var(--ink-soft);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+/* ── The corner disc, top-right ─────────────────────────────────── */
+
+/* Shared hub: the corner disc and the background disc center here.
+   Reference geometry is height-relative around the corner: center
+   ~21vh in from the frame's top-right, surround diameter ~40% of
+   the frame height. The halo (1.38R) must cover the frame border's
+   corner junction, like the original. */
+.page-home {
+  --hub-x: calc(100vw - 20.5vh);
+  --hub-y: 20.5vh;
+  --cd-d: max(180px, 39.6vh);
+  --cd-grey: #dee0d8; /* the plate/bridge/housing grey, one piece */
+}
+
+/* sits at .screen level (not inside the frame) so it overlaps the
+   bezel like the original; ×1.45 because the viewBox pads past the
+   surround to fit the ring text and ball housing. Three stacked
+   copies (body / ring text / bridge + ball) paint in DOM order. */
+.cdisc {
+  position: absolute;
+  z-index: 2;
+  left: var(--hub-x);
+  top: var(--hub-y);
+  translate: -50% -50%;
+  width: calc(var(--cd-d) * 1.45);
+  aspect-ratio: 1;
+  pointer-events: none;
+}
+
+/* the halo ring and its text slide under the screen border: clip that
+   layer at the frame's inner edge (bezel + 3px border), measured in from
+   this div's own top/right edges (div spans hub ± 0.725 × --cd-d each
+   way) — only the hard disc overlaps the border */
+.cdisc--halo {
+  clip-path: inset(
+    calc(var(--bezel) + 3px - var(--hub-y) + var(--cd-d) * 0.725)
+    calc(var(--hub-x) + var(--cd-d) * 0.725 + var(--bezel) + 3px - 100vw)
+    0 0
+  );
+}
+
+.cd-halo { fill: #fff; }
+.cd-plate, .cd-bridge { fill: var(--cd-grey); }
+.cd-outline { fill: none; stroke: var(--orange); stroke-width: 3; }
+
+.cd-ring { fill: none; stroke: #686b62; }
+.cd-ring--thick { stroke-width: 13.5; }
+.cd-ring--thin { stroke-width: 4.2; }
+
+/* segment gaps: the plate showing through the dark rings */
+.cd-cross line { stroke: var(--cd-grey); stroke-width: 4.5; }
+
+.cd-edge { fill: #5f7d4a; }
+.cd-green { fill: #a4ed86; }
+.cd-ball { fill: #6fdc46; }
+.cd-center { fill: var(--paper-warm); }
+
+.cd-rotor,
+.cd-cross-rotor {
+  transform-box: view-box;
+  transform-origin: 50% 50%;
+  animation: disc-spin 40s linear infinite;
+}
+
+/* the segment gaps spin at the background disc's speed, so they
+   stay aligned with its spokes */
+.cd-cross-rotor { animation-duration: 48s; }
+
+.cd-text {
+  fill: var(--orange);
+  font-family: var(--font-geo);
+  font-size: 30px;
+  font-weight: 600;
+}
+
+@media (max-width: 640px) {
+  .menu__list--secondary { margin-left: 0; }
+  .page-home {
+    --hub-x: calc(100vw - 18vmin);
+    --hub-y: 18vmin;
+    --cd-d: 36vmin;
+  }
+}

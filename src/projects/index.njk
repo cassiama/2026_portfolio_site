@@ -1,0 +1,35 @@
+---
+layout: layouts/base.njk
+title: Projects
+desc: Selected projects by Chancelor Assiamah — pick a fighter.
+bodyClass: page-projects has-greenbar
+stylesheet: /css/pages/projects.css
+---
+{% from "components/fighter.njk" import fighter %}
+
+<main class="select">
+  <span class="select__bg select__bg--left" aria-hidden="true"></span>
+  <span class="select__bg select__bg--right" aria-hidden="true"></span>
+  <span class="select__bg select__bg--center" aria-hidden="true"></span>
+
+  <header class="select__head">
+    <h1 class="select__title">Projects</h1>
+    <p class="select__sub">Select a project to view its details.</p>
+  </header>
+
+  <ul class="roster">
+    {%- for p in projects %}
+    <li class="roster__item">
+      <a class="roster__link" href="/projects/{{ p.slug }}/">
+        {{ fighter(p) }}
+        <span class="roster__name">{{ p.title }}</span>
+        <span class="roster__kind">{{ p.kind }} · {{ p.year }}</span>
+      </a>
+    </li>
+    {%- endfor %}
+  </ul>
+
+  <footer class="select__foot">
+    <a class="pill pill--exit" href="/">Exit</a>
+  </footer>
+</main>

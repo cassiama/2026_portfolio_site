@@ -1,0 +1,96 @@
+/* ── The spinning KOF XI disc ───────────────────────────────────── */
+
+.disc {
+  position: absolute;
+  z-index: 0;
+  aspect-ratio: 1;
+  pointer-events: none;
+  perspective: 1100px;
+  view-transition-name: disc;
+}
+
+.disc__tilt {
+  width: 100%;
+  height: 100%;
+}
+
+.disc__face {
+  width: 100%;
+  height: 100%;
+  animation: disc-spin var(--disc-speed, 48s) linear infinite;
+  will-change: transform;
+}
+
+@keyframes disc-spin {
+  to { transform: rotate(1turn); }
+}
+
+/* Face-on, oversized, bleeding off the top-right — main menu.
+   Its center sits exactly on the corner disc's hub: the hub coords
+   are viewport-based, so subtract the frame's own offset (bezel
+   padding + 3px border) to convert into frame space. */
+.disc--face {
+  width: min(175vmin, 1850px);
+  left: calc(var(--hub-x, 80vw) - var(--bezel) - 3px);
+  top: calc(var(--hub-y, 21.5vh) - var(--bezel) - 3px);
+  translate: -50% -50%;
+}
+
+/* Tilted into the floor plane, dimmed — subpage background */
+.disc--floor {
+  width: max(150vmin, 900px);
+  left: 50%;
+  top: 52%;
+  translate: -50% -42%;
+  --disc-speed: 70s;
+}
+
+.disc--floor .disc__tilt {
+  transform: rotateX(63deg);
+}
+
+.disc--floor .disc__face {
+  opacity: 0.62;
+}
+
+/* ── SVG part colors (all var-driven so pages can recolor) ──────── */
+
+/* gradient-segment stops (the dc-base circle fills with url(#dc-bands));
+   both gradient segments run light -> dark moving outward, like the
+   original, and the outer one ends in the rim color at the disc edge */
+.dcg-pale  { stop-color: color-mix(in srgb, var(--disc-base) 16%, #fffdf0); }
+.dcg-deep  { stop-color: var(--disc-base); }
+.dcg-vivid { stop-color: var(--disc-vivid, var(--disc-rim)); }
+.dcg-outer { stop-color: color-mix(in srgb, var(--disc-base) 42%, #fffdf0); }
+.dcg-rim   { stop-color: var(--disc-rim); }
+
+.dc-line {
+  fill: none;
+  stroke: var(--disc-line);
+  stroke-width: 6.5;
+}
+
+.dc-glyph-group {
+  fill: var(--disc-glyph);
+  opacity: 0.55;
+}
+
+.dc-text {
+  fill: var(--disc-text);
+  font-family: var(--font-geo);
+  font-size: 32px;
+  font-weight: 500;
+  letter-spacing: 6px;
+  opacity: 0.9;
+}
+
+.dc-spoke-group { opacity: 0.85; }
+.dc-spoke { stroke: var(--disc-spoke); stroke-width: 8; }
+
+.dc-hub-outer { fill: var(--disc-hub-outer); }
+.dc-hub-ring { fill: var(--disc-hub-ring); }
+.dc-hub { fill: var(--disc-hub); }
+
+@media (prefers-reduced-motion: reduce) {
+  .disc__face { animation: none; }
+}

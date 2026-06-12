@@ -1,0 +1,55 @@
+---
+layout: layouts/base.njk
+pagination:
+  data: projects
+  size: 1
+  alias: project
+permalink: "/projects/{{ project.slug }}/"
+eleventyComputed:
+  title: "{{ project.title }}"
+  desc: "{{ project.blurb }}"
+bodyClass: page-project has-greenbar
+stylesheet: /css/pages/project.css
+---
+{% from "components/fighter.njk" import fighter %}
+{% set idx = pagination.pageNumber + 1 %}
+
+<main class="vs" style="--ring: var(--c-{{ project.accent | default('teal') }})">
+  <div class="vs__stage">
+    <span class="vs__num" aria-hidden="true">{{ idx | pad2 }}</span>
+    {{ fighter(project, true) }}
+  </div>
+
+  <article class="vs__info">
+    <p class="vs__kicker">Project {{ idx | pad2 }} / {{ projects | length | pad2 }}</p>
+    <h1 class="vs__title">{{ project.title }}</h1>
+    <p class="vs__meta">{{ project.kind }} · {{ project.year }}</p>
+    <p class="vs__blurb">{{ project.blurb }}</p>
+
+    <h2 class="vs__label">Built with</h2>
+    <ul class="vs__tech">
+      {%- for t in project.tech %}
+      <li>{{ t }}</li>
+      {%- endfor %}
+    </ul>
+
+    <p class="vs__links">
+      {%- if project.links.code %}
+      <a class="pill pill--accent" href="{{ project.links.code }}">View code</a>
+      {%- endif %}
+      {%- if project.links.demo %}
+      <a class="pill" href="{{ project.links.demo }}">Live demo</a>
+      {%- endif %}
+    </p>
+  </article>
+
+  <footer class="vs__foot">
+    {%- if pagination.href.previous %}
+    <a class="pill" href="{{ pagination.href.previous }}">&#9664; Prev</a>
+    {%- endif %}
+    <a class="pill pill--exit" href="/projects/">Exit</a>
+    {%- if pagination.href.next %}
+    <a class="pill" href="{{ pagination.href.next }}">Next &#9654;</a>
+    {%- endif %}
+  </footer>
+</main>

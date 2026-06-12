@@ -1,0 +1,67 @@
+---
+layout: layouts/base.njk
+title: About Me
+desc: Who Chancelor Assiamah is, what he builds, and why this site has a spinning disc.
+bodyClass: page-about
+disc: floor
+stylesheet: /css/pages/about.css
+eleventyComputed:
+  tab: "{{ site.name }}"
+---
+<h1 class="sr-only">About Me</h1>
+
+<main class="setting">
+  <div class="setting__portrait">
+    <div class="portrait-card">
+      <p class="portrait-card__title">{{ site.role }}</p>
+      <div class="portrait-card__panel">
+        <svg class="portrait-card__silhouette" viewBox="0 0 100 100" aria-hidden="true">
+          <circle cx="50" cy="36" r="16"/>
+          <path d="M16 94 q5 -32 34 -32 t34 32 z"/>
+        </svg>
+        <span class="portrait-card__note">photo coming soon</span>
+      </div>
+    </div>
+    <p class="setting__tagline">{{ about.tagline }}</p>
+  </div>
+
+  <div class="setting__info">
+    <fieldset class="palette">
+      <legend class="palette__legend">Color edit — repaint the disc</legend>
+      <div class="palette__grid">
+        <input type="radio" name="disc-color" id="c-teal" checked>
+        <label class="palette__swatch" for="c-teal" style="--sw: #3bbfae"><span class="sr-only">Teal</span></label>
+        <input type="radio" name="disc-color" id="c-lime">
+        <label class="palette__swatch" for="c-lime" style="--sw: #cfe24e"><span class="sr-only">Lime</span></label>
+        <input type="radio" name="disc-color" id="c-orange">
+        <label class="palette__swatch" for="c-orange" style="--sw: #f49d3f"><span class="sr-only">Orange</span></label>
+        <input type="radio" name="disc-color" id="c-pink">
+        <label class="palette__swatch" for="c-pink" style="--sw: #e98aa6"><span class="sr-only">Pink</span></label>
+        <input type="radio" name="disc-color" id="c-blue">
+        <label class="palette__swatch" for="c-blue" style="--sw: #4d7fd0"><span class="sr-only">Blue</span></label>
+        <input type="radio" name="disc-color" id="c-purple">
+        <label class="palette__swatch" for="c-purple" style="--sw: #8b5fc7"><span class="sr-only">Purple</span></label>
+      </div>
+    </fieldset>
+
+    <dl class="facts">
+      {%- for fact in about.facts %}
+      <div class="facts__row{% if fact.highlight %} facts__row--hl{% endif %}">
+        <dt>{{ fact.label }}</dt>
+        <dd>{{ fact.value }}</dd>
+      </div>
+      {%- endfor %}
+    </dl>
+
+    <div class="setting__bio">
+      {%- for para in about.bio %}
+      <p>{{ para }}</p>
+      {%- endfor %}
+    </div>
+
+    <footer class="setting__foot">
+      <a class="pill pill--accent" href="/resume/">Résumé</a>
+      <a class="pill pill--exit" href="/">Exit</a>
+    </footer>
+  </div>
+</main>

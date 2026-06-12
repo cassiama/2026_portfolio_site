@@ -1,0 +1,81 @@
+{#-
+  The KOF XI spinning disc. One per page, two states set by the `disc`
+  front-matter key: "face" (home, face-on) or "floor" (subpages, tilted
+  into the background). All colors come from --disc-* custom properties
+  so pages (and the About palette swatches) can recolor it in CSS.
+-#}
+{%- set ringText = (site.name + " ✦ portfolio ✦ html & css only ✦ ") | upper -%}
+<div class="disc disc--{{ disc }}" aria-hidden="true">
+  <div class="disc__tilt">
+    <svg class="disc__face" viewBox="-500 -500 1000 1000" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        {#- three segments, like the original: a broad inner face
+            fading pale -> saturated, a narrow vivid band, then an
+            outer ring fading pale -> rim color at the disc edge
+            (white arcs mark the two boundaries) -#}
+        <radialGradient id="dc-bands" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="498">
+          <stop offset="0" class="dcg-pale"/>
+          <stop offset="0.703" class="dcg-deep"/>
+          <stop offset="0.711" class="dcg-vivid"/>
+          <stop offset="0.837" class="dcg-vivid"/>
+          <stop offset="0.849" class="dcg-outer"/>
+          <stop offset="1" class="dcg-rim"/>
+        </radialGradient>
+        <path id="dc-ring-path" d="M 0 -310 A 310 310 0 1 1 -0.01 -310" fill="none"/>
+        <g id="dc-glyphs">
+          <rect x="-14" y="-456" width="28" height="62" rx="14"/>
+          <circle cx="0" cy="-360" r="13"/>
+          <rect x="-31" y="-330" width="62" height="22" rx="11"/>
+          <ellipse cx="0" cy="-264" rx="21" ry="33"/>
+          <circle cx="0" cy="-198" r="9"/>
+          <rect x="-10" y="-178" width="20" height="44" rx="10"/>
+        </g>
+      </defs>
+
+      <circle r="498" class="dc-base" fill="url(#dc-bands)"/>
+
+      {#- texture only on the inner face, inside the first arc -#}
+      <g class="dc-glyph-group" transform="scale(0.74)">
+        <use href="#dc-glyphs"/>
+        <use href="#dc-glyphs" transform="rotate(30)"/>
+        <use href="#dc-glyphs" transform="rotate(60)"/>
+        <use href="#dc-glyphs" transform="rotate(90)"/>
+        <use href="#dc-glyphs" transform="rotate(120)"/>
+        <use href="#dc-glyphs" transform="rotate(150)"/>
+        <use href="#dc-glyphs" transform="rotate(180)"/>
+        <use href="#dc-glyphs" transform="rotate(210)"/>
+        <use href="#dc-glyphs" transform="rotate(240)"/>
+        <use href="#dc-glyphs" transform="rotate(270)"/>
+        <use href="#dc-glyphs" transform="rotate(300)"/>
+        <use href="#dc-glyphs" transform="rotate(330)"/>
+        <use href="#dc-glyphs" transform="rotate(15) scale(.52)"/>
+        <use href="#dc-glyphs" transform="rotate(75) scale(.52)"/>
+        <use href="#dc-glyphs" transform="rotate(135) scale(.52)"/>
+        <use href="#dc-glyphs" transform="rotate(195) scale(.52)"/>
+        <use href="#dc-glyphs" transform="rotate(255) scale(.52)"/>
+        <use href="#dc-glyphs" transform="rotate(315) scale(.52)"/>
+      </g>
+
+      {#- white arcs at the two segment boundaries -#}
+      <g class="dc-line-group">
+        <circle r="350" class="dc-line" stroke-width="8"/>
+        <circle r="420" class="dc-line"/>
+      </g>
+
+      {#- spoke cross at 7°, matching the corner disc's segment gaps -#}
+      <g class="dc-spoke-group" transform="rotate(7)">
+        <line x1="-498" y1="0" x2="498" y2="0" class="dc-spoke"/>
+        <line x1="0" y1="-498" x2="0" y2="498" class="dc-spoke"/>
+      </g>
+
+      {#- painted after the spokes so the ring text stays legible -#}
+      {#- textLength = ring circumference (2π·310) so the loop closes
+          evenly instead of clipping mid-word at the path seam -#}
+      <text class="dc-text"><textPath href="#dc-ring-path" textLength="1948" lengthAdjust="spacing">{{ ringText }}{{ ringText }}</textPath></text>
+
+      <circle r="92" class="dc-hub-outer"/>
+      <circle r="66" class="dc-hub-ring"/>
+      <circle r="40" class="dc-hub"/>
+    </svg>
+  </div>
+</div>

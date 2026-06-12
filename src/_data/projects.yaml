@@ -1,0 +1,60 @@
+# ── Projects roster ───────────────────────────────────────────────
+# Each entry is one "fighter" on the select screen and one detail page.
+#   slug:     URL + view-transition identity (kebab-case, unique)
+#   accent:   ring color — teal | orange | purple | green | pink | blue
+#   initials: shown in the placeholder portrait until you add real art
+#   portrait: optional — path to an image under /assets/ to replace initials
+
+- slug: this-website
+  title: This Website
+  year: 2026
+  kind: Static site
+  initials: CA
+  accent: teal
+  blurb: >-
+    The site you're looking at. A KOF XI (PS2) UI homage built with
+    Eleventy, YAML data, and zero client-side JavaScript — the spinning
+    3D disc, page transitions, and interactive bits are all CSS.
+  tech: [HTML, CSS, Eleventy, YAML]
+  links:
+    code: "https://github.com/your-username/2026_portfolio_site"  # PLACEHOLDER
+
+- slug: project-beta
+  title: Project Beta
+  year: 2025
+  kind: Web app
+  initials: PB
+  accent: orange
+  blurb: >-
+    PLACEHOLDER — a short, punchy description of what this project is,
+    what problem it solves, and what was interesting about building it.
+  tech: [PLACEHOLDER, PLACEHOLDER]
+  links:
+    code: "https://github.com/your-username/project-beta"
+    demo: "https://example.com"
+
+- slug: project-gamma
+  title: Project Gamma
+  year: 2025
+  kind: CLI tool
+  initials: PG
+  accent: purple
+  blurb: >-
+    PLACEHOLDER — swap this entry for a real project whenever one is
+    ready. Adding a project is just another block in projects.yaml.
+  tech: [PLACEHOLDER]
+  links:
+    code: "https://github.com/your-username/project-gamma"
+
+- slug: project-delta
+  title: Project Delta
+  year: 2024
+  kind: Experiment
+  initials: PD
+  accent: green
+  blurb: >-
+    PLACEHOLDER — even small experiments and CSS toys are worth listing;
+    they show range. Delete this one if you'd rather keep the roster tight.
+  tech: [PLACEHOLDER]
+  links:
+    demo: "https://example.com"

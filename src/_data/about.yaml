@@ -1,0 +1,34 @@
+# ── About page data ───────────────────────────────────────────────
+
+# Short playful tagline rendered in the WarioWare Inc font.
+tagline: "now loading: one developer!"
+
+# The CHARACTER SETTING-style stat rows. "highlight: true" gets the
+# orange selected-pill treatment.
+facts:
+  - label: Name
+    value: Chancelor Assiamah
+  - label: Role
+    value: Software Developer       # PLACEHOLDER
+  - label: Location
+    value: Planet Earth             # PLACEHOLDER
+  - label: Focus
+    value: HTML · CSS · the web platform
+  - label: Status
+    value: Open to opportunities    # PLACEHOLDER
+    highlight: true
+
+# Bio paragraphs. PLACEHOLDER copy — rewrite in your own voice.
+bio:
+  - >-
+    Hi — I'm Chancelor. I build for the web the old-school way: semantic
+    HTML, hand-written CSS, and a deep suspicion of shipping a megabyte
+    of JavaScript to render three paragraphs of text.
+  - >-
+    This site is a love letter to the Y2K era of interface design —
+    specifically the PS2 port of The King of Fighters XI. Every screen
+    you see here is pure HTML and CSS: the spinning disc, the page
+    transitions, even the color palette you can play with on this page.
+  - >-
+    When I'm not pushing pixels with stylesheets, I'm probably playing
+    the games that inspired this site.

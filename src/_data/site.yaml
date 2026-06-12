@@ -1,0 +1,48 @@
+# ── Global site data ──────────────────────────────────────────────
+# Replace placeholder values; templates read everything from here.
+
+name: Chancelor Assiamah
+shortName: Chancelor
+role: Software Developer            # PLACEHOLDER — your actual title
+tagline: hand-built with HTML & CSS — no frameworks, no scripts
+description: >-
+  Portfolio of Chancelor Assiamah — a Y2K, KOF XI-inspired site built
+  entirely with HTML and CSS. Zero JavaScript shipped.
+year: 2026
+
+# Main menu (home page pills). "count" pulls a live number in the
+# little chip after the pill: "projects" or "posts".
+menu:
+  primary:
+    - label: About Me
+      url: /about/
+    - label: Projects
+      url: /projects/
+      count: projects
+    - label: Blog
+      url: /blog/
+      count: posts
+  secondary:
+    - label: Contact
+      url: /contact/
+    - label: Résumé
+      url: /resume/
+
+# Contact page buttons (and footer links). icon: github | linkedin | email | x
+socials:
+  - label: GitHub
+    handle: "@your-username"        # PLACEHOLDER
+    url: "https://github.com/your-username"
+    icon: github
+  - label: LinkedIn
+    handle: chancelor-assiamah      # PLACEHOLDER
+    url: "https://www.linkedin.com/in/your-profile"
+    icon: linkedin
+  - label: Email
+    handle: assiamah.ch@gmail.com
+    url: "mailto:assiamah.ch@gmail.com"
+    icon: email
+  - label: X / Twitter
+    handle: "@your-handle"          # PLACEHOLDER
+    url: "https://x.com/your-handle"
+    icon: x

@@ -1,0 +1,33 @@
+---
+layout: layouts/base.njk
+tab: Main Menu
+bodyClass: page-home
+disc: face
+stylesheet: /css/pages/home.css
+permalink: /
+---
+<h1 class="sr-only">{{ site.name }} — main menu</h1>
+
+<nav class="menu" aria-label="Main menu">
+  <ul class="menu__list menu__list--primary">
+    {%- for item in site.menu.primary %}
+    <li>
+      <a class="pill menu__pill" href="{{ item.url }}">
+        <span class="menu__label">{{ item.label }}</span>
+        {%- if item.count == "projects" %}
+        <span class="menu__chip">{{ projects | length | pad2 }}</span>
+        {%- elif item.count == "posts" %}
+        <span class="menu__chip">{{ collections.post | length | pad2 }}</span>
+        {%- endif %}
+      </a>
+    </li>
+    {%- endfor %}
+  </ul>
+  <ul class="menu__list menu__list--secondary">
+    {%- for item in site.menu.secondary %}
+    <li><a class="pill menu__pill" href="{{ item.url }}"><span class="menu__label">{{ item.label }}</span></a></li>
+    {%- endfor %}
+  </ul>
+</nav>
+
+<p class="menu__tagline">{{ site.tagline }}</p>

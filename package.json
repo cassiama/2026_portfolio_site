@@ -1,0 +1,15 @@
+{
+  "name": "2026-portfolio-site",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Y2K / KOF XI (PS2) inspired portfolio — pure HTML & CSS output, zero client-side JavaScript",
+  "scripts": {
+    "dev": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.6",
+    "js-yaml": "^4.2.0"
+  }
+}

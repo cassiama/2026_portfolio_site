@@ -1,0 +1,36 @@
+---
+layout: layouts/base.njk
+bodyClass: page-post
+stylesheet: /css/pages/post.css
+---
+<main class="stage">
+  <header class="stage__head">
+    <div class="mosaic" aria-hidden="true">
+      {%- for i in range(0, 16) %}<i></i>{% endfor -%}
+    </div>
+    <h1 class="stage__title">{{ title }}</h1>
+    <div class="orbit-deco" aria-hidden="true"><i></i><i></i><i></i></div>
+  </header>
+
+  <p class="stage__bar">
+    <time datetime="{{ page.date | dateISO }}">{{ page.date | dateDisplay }}</time>
+  </p>
+
+  <article class="stage__body">
+    {{ content | safe }}
+  </article>
+
+  <p class="stage__bar stage__bar--foot">
+    {%- set shown = false -%}
+    {%- for t in tags %}{% if t != "post" %}{% if shown %} · {% endif %}{{ t }}{% set shown = true %}{% endif %}{% endfor -%}
+    {%- if not shown %}journal{% endif -%}
+  </p>
+
+  <footer class="stage__foot">
+    <a class="pill pill--exit" href="/blog/">Exit</a>
+  </footer>
+
+  <div class="mosaic mosaic--foot" aria-hidden="true">
+    {%- for i in range(0, 8) %}<i></i>{% endfor -%}
+  </div>
+</main>

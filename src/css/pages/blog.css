@@ -1,0 +1,123 @@
+/* ── Blog index: the CHALLENGE grid ─────────────────────────────── */
+
+.page-blog .screen__frame {
+  background: #b0b4b1;
+}
+
+/* desaturated lime disc, challenge-screen style */
+.page-blog {
+  --disc-rim: #98a878;
+  --disc-vivid: #9cb858;
+  --disc-base: #a9bd6b;
+  --disc-line: #c3d394;
+  --disc-glyph: #cbd9a2;
+  --disc-text: #7d9148;
+  --disc-spoke: #e8eae6;
+  --disc-hub-ring: #b4ce8d;
+  --disc-hub: #e9e7d8;
+}
+
+.challenge {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.coins {
+  list-style: none;
+  margin: 0 auto;
+  padding: clamp(3.8rem, 10vmin, 5.6rem) clamp(1.4rem, 5vw, 3.6rem) 2rem;
+  max-width: 900px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+  gap: clamp(1.2rem, 3.5vmin, 2.4rem);
+}
+
+.coin {
+  display: grid;
+  place-items: center;
+  width: clamp(54px, 8vmin, 76px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--orange);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 2.6vmin, 1.45rem);
+  text-decoration: none;
+  text-shadow: var(--outline-ink);
+  box-shadow: 0 3px 8px #00000026;
+  transition: transform 0.14s ease, box-shadow 0.14s ease;
+}
+
+/* selected = white double ring, like challenge 22 */
+.coin:hover,
+.coin:focus-visible {
+  transform: scale(1.08);
+  box-shadow: 0 0 0 3px #fff, 0 0 0 6px var(--orange), 0 4px 10px #00000033;
+}
+
+.challenge__foot {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 clamp(1.4rem, 5vw, 3.6rem) 1rem;
+  margin-top: auto;
+}
+
+/* Next Stage-style title bar pinned to the frame bottom */
+.challenge__bar {
+  position: relative;
+  height: 2.6rem;
+  background: linear-gradient(
+    90deg,
+    var(--blue-pale) 0 5%,
+    var(--blue-deep) 5% 95%,
+    var(--blue-pale) 95%
+  );
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+.challenge__default {
+  transition: opacity 0.12s ease;
+}
+
+.challenge:has(.coins__item:hover) .challenge__default,
+.challenge:has(.coins__item:focus-within) .challenge__default {
+  opacity: 0;
+}
+
+/* hovered post title teleports into the bar (pure CSS) */
+.coin-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2.6rem;
+  display: grid;
+  place-items: center;
+  padding-inline: 1rem;
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.12s ease;
+}
+
+.coins__item:hover .coin-caption,
+.coins__item:focus-within .coin-caption {
+  opacity: 1;
+}

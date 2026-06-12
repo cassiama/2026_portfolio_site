@@ -1,0 +1,28 @@
+/* ── 404: WarioWare gets its moment ─────────────────────────────── */
+
+.lost {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  text-align: center;
+  padding: 2rem;
+}
+
+.lost__code {
+  font-family: var(--font-ware);
+  font-size: clamp(5rem, 22vmin, 12rem);
+  line-height: 1;
+  color: var(--orange);
+  rotate: -4deg;
+  text-shadow: 4px 5px 0 #00000022;
+}
+
+.lost__msg {
+  font-family: var(--font-ware);
+  font-size: clamp(1.4rem, 4.5vmin, 2.4rem);
+  color: var(--ink);
+  rotate: 1.5deg;
+}

@@ -1,0 +1,124 @@
+@import url("../fighter.css");
+
+/* ── Projects: the character select screen ──────────────────────── */
+
+.select {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1rem, 4vmin, 2.5rem) clamp(1rem, 4vw, 3rem) clamp(2rem, 5vmin, 3rem);
+  overflow: hidden;
+}
+
+/* giant soft player-side shapes, pink left / blue right */
+.select__bg {
+  position: absolute;
+  z-index: 0;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.select__bg--left {
+  left: -16%;
+  top: -22%;
+  width: 56vmin;
+  aspect-ratio: 1;
+  background: var(--pink);
+  opacity: 0.55;
+}
+
+.select__bg--right {
+  right: -16%;
+  bottom: -24%;
+  width: 60vmin;
+  aspect-ratio: 1;
+  background: var(--blue);
+  opacity: 0.5;
+}
+
+.select__bg--center {
+  left: 50%;
+  top: 52%;
+  translate: -50% -50%;
+  width: 52vmin;
+  aspect-ratio: 1;
+  background: #ececec;
+  opacity: 0.8;
+}
+
+.select__head {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  margin-top: clamp(0.5rem, 2vmin, 1.5rem);
+}
+
+.select__title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 7vmin, 3.6rem);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #a7abae;
+  text-shadow: 0 2px 0 #fff, 0 4px 10px #00000014;
+}
+
+.select__sub {
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+
+.roster {
+  position: relative;
+  z-index: 1;
+  list-style: none;
+  padding: 0;
+  margin: auto 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: clamp(2rem, 6vmin, 4rem) clamp(2.4rem, 7vmin, 5rem);
+  padding-block: clamp(2rem, 5vmin, 3.5rem);
+}
+
+/* stagger alternates vertically like the select screen */
+.roster__item:nth-child(even) {
+  translate: 0 clamp(1.4rem, 4vmin, 3rem);
+}
+
+.roster__item:nth-child(even) .fighter__orbit {
+  animation-direction: reverse;
+}
+
+.roster__link {
+  display: grid;
+  justify-items: center;
+  gap: 0.45rem;
+  text-decoration: none;
+}
+
+.roster__name {
+  margin-top: 0.5rem;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.roster__kind {
+  font-weight: 500;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.select__foot {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 0.6rem;
+}

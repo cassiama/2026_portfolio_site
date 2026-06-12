@@ -1,0 +1,107 @@
+/* ── Fonts (self-hosted, latin subsets) ─────────────────────────── */
+
+@font-face {
+  font-family: "Archivo Black";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/archivo-black-400.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 100 900; /* variable font, single file */
+  font-display: swap;
+  src: url("../fonts/jost-variable.woff2") format("woff2");
+}
+@font-face {
+  font-family: "M PLUS Rounded 1c";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../fonts/m-plus-rounded-1c-500.woff2") format("woff2");
+}
+@font-face {
+  font-family: "M PLUS Rounded 1c";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/m-plus-rounded-1c-700.woff2") format("woff2");
+}
+/* Accent font (public domain, via fontspace f41008) */
+@font-face {
+  font-family: "WarioWare Inc";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/wariowareinc.ttf") format("truetype");
+}
+
+/* ── Design tokens (sampled from the KOF XI PS2 screens) ────────── */
+
+:root {
+  /* chrome */
+  --bezel: clamp(14px, 3.2vmin, 34px); /* .screen padding around the frame */
+  --sage: #7e9d80;
+  --sage-deep: #5f7f66;
+  --gold: #e9c54b;
+  --orange: #f49d3f;
+  --orange-deep: #d97f22;
+  --gray-pill: #9da1a4;
+  --gray-pill-deep: #74787c;
+  --ink: #2e3133;
+  --ink-soft: #55585a;
+  --paper: #fcfcf7;
+  --paper-warm: #f6f3e4;
+  --steel: #aeb2af;
+
+  /* screen accents */
+  --lime: #cfe24e;
+  --lime-deep: #aec33a;
+  --lime-pale: #eef6c0;
+  --teal: #3bbfae;
+  --teal-deep: #2a9b8d;
+  --pink: #f2bcca;
+  --pink-deep: #e98aa6;
+  --blue: #a9c9f2;
+  --blue-deep: #4d7fd0;
+  --blue-pale: #d4e4f8;
+  --purple: #6247aa;
+  --navy: #3d3a6b;
+  --mint: #bdeac0;
+  --mint-pale: #ddf4de;
+  --bar-green: #9ed46d;
+
+  /* project ring accents (projects.yaml `accent:` keys) */
+  --c-teal: var(--teal);
+  --c-orange: var(--orange);
+  --c-purple: #8b5fc7;
+  --c-green: #7fc466;
+  --c-pink: var(--pink-deep);
+  --c-blue: var(--blue-deep);
+
+  /* type */
+  --font-display: "Archivo Black", "Arial Black", "Arial Bold", sans-serif;
+  --font-geo: "Jost", "Century Gothic", Futura, "Trebuchet MS", sans-serif;
+  --font-round: "M PLUS Rounded 1c", "Varela Round", "Trebuchet MS", sans-serif;
+  --font-ware: "WarioWare Inc", "Comic Sans MS", "Chalkboard SE", cursive;
+  --font-serif: Georgia, "Times New Roman", serif;
+
+  /* heavy game-text outline (layered shadows: works in every browser) */
+  --outline-ink:
+    -1.5px -1.5px 0 #51555a, 1.5px -1.5px 0 #51555a,
+    -1.5px 1.5px 0 #51555a, 1.5px 1.5px 0 #51555a,
+    0 2.5px 0 #51555a;
+
+  /* disc default colorway: main-menu lime */
+  --disc-rim: #b9cc3a;
+  --disc-vivid: #b7dc12; /* the narrow saturated band before the rim */
+  --disc-base: #cfe24e;
+  --disc-line: #ffffff;
+  --disc-glyph: #e7f2a5;
+  --disc-text: #9cb02f;
+  --disc-spoke: #ffffff;
+  --disc-hub-outer: #ffffff;
+  --disc-hub-ring: #9ccf63;
+  --disc-hub: #f6f3e4;
+}

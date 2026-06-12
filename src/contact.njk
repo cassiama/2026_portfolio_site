@@ -1,0 +1,33 @@
+---
+layout: layouts/base.njk
+title: Contact
+desc: How to reach Chancelor Assiamah — email, GitHub, LinkedIn and more.
+bodyClass: page-contact has-greenbar
+stylesheet: /css/pages/contact.css
+---
+{% from "components/icons.njk" import icon %}
+
+<main class="contact">
+  <header class="contact__head">
+    <h1 class="contact__title">Contact Info</h1>
+    <p class="contact__sub">pick a channel</p>
+  </header>
+
+  <ul class="channels">
+    {%- for s in site.socials %}
+    <li>
+      <a class="channel" href="{{ s.url }}">
+        <span class="channel__icon">{{ icon(s.icon) }}</span>
+        <span class="channel__meta">
+          <span class="channel__label">{{ s.label }}</span>
+          <span class="channel__value">{{ s.handle }}</span>
+        </span>
+      </a>
+    </li>
+    {%- endfor %}
+  </ul>
+
+  <footer class="contact__foot">
+    <a class="pill pill--exit" href="/">Exit</a>
+  </footer>
+</main>

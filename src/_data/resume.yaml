@@ -1,0 +1,27 @@
+# ── Resume (credits screen) data ──────────────────────────────────
+# Each section renders as ◆ HEADING ◆ followed by centered lines.
+# pdf: path to the real file — drop it at src/assets/resume.pdf
+
+pdf: /assets/resume.pdf
+
+sections:
+  - heading: Experience
+    entries:
+      - title: Your Company — Software Developer        # PLACEHOLDER
+        detail: 2024 – present
+      - title: Previous Company — Junior Developer      # PLACEHOLDER
+        detail: 2022 – 2024
+
+  - heading: Skills
+    entries:
+      - title: HTML · CSS · Accessibility
+        detail: the core kit
+      - title: JavaScript · TypeScript                  # PLACEHOLDER
+        detail: when it earns its bytes
+      - title: Eleventy · Git · Linux                   # PLACEHOLDER
+        detail: tooling
+
+  - heading: Education
+    entries:
+      - title: Your University — B.S. Something         # PLACEHOLDER
+        detail: 20XX

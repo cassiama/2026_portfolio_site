@@ -1,0 +1,121 @@
+/* ── Resume: the credits screen ─────────────────────────────────── */
+
+.page-resume .screen__frame {
+  background: #f4f5f1;
+}
+
+.credits {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: clamp(2.2rem, 6vmin, 4rem) clamp(1.4rem, 5vw, 4rem) 0;
+  overflow: hidden;
+}
+
+/* the three big soft green circles */
+.credits__blob {
+  position: absolute;
+  z-index: 0;
+  border-radius: 50%;
+  background: var(--mint);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.credits__blob--a { width: 46vmin; aspect-ratio: 1; top: -4%; left: 50%; translate: -50%; }
+.credits__blob--b { width: 42vmin; aspect-ratio: 1; bottom: 6%; left: 16%; }
+.credits__blob--c { width: 42vmin; aspect-ratio: 1; bottom: 4%; right: 14%; }
+
+.credits > :not(.credits__blob) {
+  position: relative;
+  z-index: 1;
+}
+
+.credits__heading {
+  font-family: var(--font-geo);
+  font-weight: 600;
+  font-size: clamp(1.3rem, 3.4vmin, 1.9rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+}
+
+.credits__heading::before { content: "◆ "; color: #f23fa0; }
+.credits__heading::after { content: " ◆"; color: #f23fa0; }
+
+.credits__heading--main {
+  font-size: clamp(1.8rem, 4.6vmin, 2.6rem);
+  margin-bottom: clamp(1rem, 3vmin, 2rem);
+}
+
+.credits__section {
+  margin-bottom: clamp(1.2rem, 3.4vmin, 2.2rem);
+}
+
+.credits__list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.credits__list li {
+  font-family: var(--font-round);
+  font-weight: 700;
+  font-size: clamp(1rem, 2.6vmin, 1.35rem);
+  color: var(--purple);
+  letter-spacing: 0.02em;
+}
+
+.credits__sep {
+  color: #b48fd9;
+  font-weight: 500;
+  padding-inline: 0.2em;
+}
+
+.credits__d {
+  font-weight: 500;
+  color: #8a6fc0;
+}
+
+.credits__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.9rem;
+  margin-top: auto;
+  padding: 1.4rem 0;
+}
+
+/* big pale watermark name along the bottom */
+.credits__watermark {
+  width: 100%;
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 8.5vw, 5.6rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--mint);
+  white-space: nowrap;
+  overflow: hidden;
+  user-select: none;
+}
+
+@media print {
+  .pill,
+  .credits__blob,
+  .credits__watermark,
+  .screen__corner { display: none; }
+
+  .screen { padding: 0; }
+  .screen__frame { border: none; box-shadow: none; }
+  .credits__list li,
+  .credits__d,
+  .credits__heading { color: #000; }
+  .credits__heading::before,
+  .credits__heading::after { content: ""; }
+}

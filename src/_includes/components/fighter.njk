@@ -1,0 +1,22 @@
+{#-
+  A "fighter" portrait: colored ring + portrait circle + orbiting text,
+  select-screen style. Shared by the roster grid and the detail page.
+  The view-transition-name makes the grid circle morph into the
+  detail-page circle on navigation.
+-#}
+{% macro fighter(p, big=false) %}
+<span class="fighter{% if big %} fighter--big{% endif %}"
+      style="--ring: var(--c-{{ p.accent | default('teal') }}); view-transition-name: pj-{{ p.slug }}">
+  <svg class="fighter__orbit" viewBox="-100 -100 200 200" aria-hidden="true">
+    <defs>
+      <path id="orb-{{ p.slug }}{% if big %}-big{% endif %}" d="M 0 -80 A 80 80 0 1 1 -0.01 -80" fill="none"/>
+    </defs>
+    <text><textPath href="#orb-{{ p.slug }}{% if big %}-big{% endif %}">
+      {%- for i in range(0, 4) %}{{ p.title }} ✦ {% endfor -%}
+    </textPath></text>
+  </svg>
+  <span class="fighter__ring">
+    <span class="fighter__portrait">{{ p.initials }}</span>
+  </span>
+</span>
+{% endmacro %}

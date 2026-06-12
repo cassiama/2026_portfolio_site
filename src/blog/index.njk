@@ -1,0 +1,27 @@
+---
+layout: layouts/base.njk
+title: Blog
+tab: Blog
+desc: Notes on CSS, the web platform, and Y2K interface archaeology.
+bodyClass: page-blog
+disc: floor
+stylesheet: /css/pages/blog.css
+---
+<h1 class="sr-only">Blog</h1>
+
+<main class="challenge">
+  <ol class="coins">
+    {%- for post in collections.post %}
+    <li class="coins__item">
+      <a class="coin" href="{{ post.url }}" aria-label="{{ post.data.title }}">{{ loop.index | pad2 }}</a>
+      <span class="coin-caption" aria-hidden="true">{{ post.data.title }} — {{ post.date | dateDisplay }}</span>
+    </li>
+    {%- endfor %}
+  </ol>
+
+  <footer class="challenge__foot">
+    <a class="pill pill--exit" href="/">Exit</a>
+  </footer>
+
+  <p class="challenge__bar"><span class="challenge__default">Select an entry</span></p>
+</main>

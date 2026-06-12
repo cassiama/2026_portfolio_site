@@ -1,0 +1,123 @@
+/* ── Contact: the CONTINUE SERVICE screen layout ────────────────── */
+
+.contact {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(2rem, 6vmin, 4rem) clamp(1.4rem, 5vw, 4rem) clamp(2rem, 5vmin, 3rem);
+}
+
+.contact__head {
+  text-align: center;
+  margin-bottom: clamp(2rem, 6vmin, 4rem);
+}
+
+.contact__title {
+  font-family: var(--font-geo);
+  font-weight: 200;
+  font-size: clamp(2.6rem, 9vmin, 5.2rem);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink);
+  line-height: 1.05;
+}
+
+.contact__sub {
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin-top: 0.6rem;
+}
+
+.channels {
+  list-style: none;
+  padding: 0;
+  margin: auto;
+  width: min(960px, 100%);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(2.2rem, 7vmin, 4.5rem) clamp(2rem, 6vw, 5rem);
+}
+
+.channel {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 1.4rem;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.channel__icon {
+  display: grid;
+  place-items: center;
+  width: clamp(64px, 10vmin, 92px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #131516;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.channel__icon svg {
+  width: 46%;
+  fill: #fff;
+}
+
+/* callout line angling up from the underline toward the icon */
+.channel__meta {
+  position: relative;
+  display: grid;
+  gap: 0.1rem;
+  padding: 0 0 0.5rem 0.5rem;
+  border-bottom: 3px solid var(--ink);
+}
+
+.channel__meta::before {
+  content: "";
+  position: absolute;
+  left: -26px;
+  bottom: -3px;
+  width: 30px;
+  border-top: 3px solid var(--ink);
+  transform: rotate(-33deg);
+  transform-origin: right bottom;
+}
+
+.channel__label {
+  font-weight: 400;
+  font-size: 0.85rem;
+  letter-spacing: 0.22em;
+  text-transform: lowercase;
+  color: var(--ink-soft);
+}
+
+.channel__value {
+  font-family: var(--font-geo);
+  font-weight: 500;
+  font-size: clamp(1.15rem, 2.6vmin, 1.6rem);
+  letter-spacing: 0.04em;
+  overflow-wrap: anywhere;
+}
+
+.channel:hover .channel__icon,
+.channel:focus-visible .channel__icon {
+  background: var(--orange);
+  transform: scale(1.06);
+}
+
+.channel:hover .channel__value,
+.channel:focus-visible .channel__value {
+  color: var(--orange-deep);
+}
+
+.contact__foot {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: clamp(2rem, 6vmin, 3.5rem);
+}
+
+@media (max-width: 720px) {
+  .channels { grid-template-columns: 1fr; }
+}
