@@ -34,12 +34,9 @@ stylesheet: /css/pages/project.css
     </ul>
 
     <p class="vs__links">
-      {%- if project.links.code %}
-      <a class="pill pill--accent" href="{{ project.links.code }}">View code</a>
-      {%- endif %}
-      {%- if project.links.demo %}
-      <a class="pill" href="{{ project.links.demo }}">Live demo</a>
-      {%- endif %}
+      {%- for link in project.links %}
+      <a class="pill{% if loop.first %} pill--accent{% endif %}" href="{{ link.url }}">{{ link.label }}</a>
+      {%- endfor %}
     </p>
   </article>
 

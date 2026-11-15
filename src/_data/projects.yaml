@@ -4,6 +4,7 @@
 #   accent:   ring color — teal | orange | purple | green | pink | blue
 #   initials: shown in the placeholder portrait until you add real art
 #   portrait: optional — path to an image under /assets/ to replace initials
+#   links:    list of { label, url } buttons — the first one gets the accent
 
 - slug: this-website
   title: This Website
@@ -17,44 +18,70 @@
     3D disc, page transitions, and interactive bits are all CSS.
   tech: [HTML, CSS, Eleventy, YAML]
   links:
-    code: "https://github.com/your-username/2026_portfolio_site"  # PLACEHOLDER
+    - label: View code
+      url: "https://github.com/cassiama/2026_portfolio_site"
 
-- slug: project-beta
-  title: Project Beta
+- slug: licenseguard
+  title: LicenseGuard
   year: 2025
-  kind: Web app
-  initials: PB
+  kind: Multi-service app
+  initials: LG
   accent: orange
   blurb: >-
-    PLACEHOLDER — a short, punchy description of what this project is,
-    what problem it solves, and what was interesting about building it.
-  tech: [PLACEHOLDER, PLACEHOLDER]
+    Hand it a requirements.txt and it tells you which licenses your
+    dependencies carry — and where they might get you in trouble.
+    Four services, each in its own container: a FastAPI REST API that
+    runs the analysis and stores JSON reports in whichever SQL database
+    you point it at, an MCP server that exposes that API to agents, a
+    LangChain agent that streams back a plain-language risk report, and
+    a React front end tying it together. No hosted demo — it predates
+    my learning Docker Compose, so you spin up each container yourself.
+  tech: [Python, FastAPI, PostgreSQL, LangChain, MCP, TypeScript, React, Docker]
   links:
-    code: "https://github.com/your-username/project-beta"
-    demo: "https://example.com"
+    - label: API
+      url: "https://github.com/cassiama/LicenseGuard-API"
+    - label: MCP server
+      url: "https://github.com/cassiama/LicenseGuard-MCP"
+    - label: AI agent
+      url: "https://github.com/cassiama/LicenseGuard-AI"
+    - label: Web UI
+      url: "https://github.com/cassiama/LicenseGuard-UI"
 
-- slug: project-gamma
-  title: Project Gamma
-  year: 2025
-  kind: CLI tool
-  initials: PG
+- slug: nba-east-west
+  title: NBA East–West Split
+  year: 2026
+  kind: Data science mini project
+  initials: NBA
   accent: purple
   blurb: >-
-    PLACEHOLDER — swap this entry for a real project whenever one is
-    ready. Adding a project is just another block in projects.yaml.
-  tech: [PLACEHOLDER]
+    Where exactly is the line between the NBA's Eastern and Western
+    conferences? I trained a linear SVM on every arena's coordinates and
+    drew the decision boundary on a map. The conferences turn out to be
+    cleanly separable, with the line running near 89°W — more or less
+    down the Mississippi. The notebook also measures how lopsided the
+    split is, asks which team should move East if Seattle and Las Vegas
+    get expansion teams (the Timberwolves), and tracks how the line has
+    drifted since 1980.
+  tech: [Python, pandas, scikit-learn, geopandas, matplotlib, Jupyter]
   links:
-    code: "https://github.com/your-username/project-gamma"
+    - label: View code
+      url: "https://github.com/cassiama/nba-east-west-mini-project"
 
-- slug: project-delta
-  title: Project Delta
-  year: 2024
-  kind: Experiment
-  initials: PD
+- slug: virginia-wikipedia
+  title: Wikipedia's Virginians
+  year: 2026
+  kind: Data science mini project
+  initials: VA
   accent: green
   blurb: >-
-    PLACEHOLDER — even small experiments and CSS toys are worth listing;
-    they show range. Delete this one if you'd rather keep the roster tight.
-  tech: [PLACEHOLDER]
+    A YouTube commenter claimed 80%+ of Wikipedia contributors have
+    addresses in Virginia, so I checked. Using editors who self-identify
+    by state through Wikipedia's own categories, plus Census population
+    figures, Virginians come out at 2.8% of US editors — 12th by raw
+    count and 23rd per capita. The claim is off by a factor of about 30;
+    its grain of truth is that Wikipedia's servers, not its people, live
+    in Virginia.
+  tech: [Python, pandas, statsmodels, matplotlib, seaborn, Jupyter]
   links:
-    demo: "https://example.com"
+    - label: View code
+      url: "https://github.com/cassiama/virginia-wikipedia-contribs-mini-project"
