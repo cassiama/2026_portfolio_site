@@ -1,27 +1,124 @@
 # ── Resume (credits screen) data ──────────────────────────────────
 # Each section renders as ◆ HEADING ◆ followed by centered lines.
 # pdf: path to the real file — drop it at src/assets/resume.pdf
+#
+# highlights: optional per-entry bullet points. Not rendered by
+# resume.njk yet — they're here so the copy is ready when it is.
 
 pdf: /assets/resume.pdf
 
 sections:
   - heading: Experience
     entries:
-      - title: Your Company — Software Developer        # PLACEHOLDER
-        detail: 2024 – present
-      - title: Previous Company — Junior Developer      # PLACEHOLDER
-        detail: 2022 – 2024
+      - title: Arodus — Founding Backend Engineer
+        detail: Jan 2026 – present · New York, NY
+        highlights:
+          - >-
+            Built the layer of the platform that AI agents talk to: an LLM
+            chatbot plus an MCP server that lets clients connect their own
+            agents, complete with token auth, usage quotas, prompt-injection
+            guardrails, and end-to-end observability.
+          - >-
+            Shut down a route an agent could have used to leak data, by
+            limiting emailed reports to people on the user's own account.
+          - >-
+            Designed and built an event-driven vendor risk monitoring service
+            from nothing — a pluggable crawler framework pulling from 8+ data
+            sources, feeding an S3-to-LLM structured-extraction pipeline.
+          - >-
+            Tidied the GDELT news feed: profiled the data before touching it,
+            collapsed duplicate stories into single events, and dropped
+            roughly 2,580 vendor links that had no supporting evidence —
+            previewing every change before applying it.
+          - >-
+            Stood up the core AWS infrastructure in Terraform, covering 10+
+            services across compute, networking, storage, and messaging.
+
+      - title: Monmouth County Diversity Alliance — Web Development Consultant
+        detail: Jun 2025 – Sep 2025 · Freehold, NJ
+        highlights:
+          - >-
+            Gathered requirements from the client, then designed a
+            WCAG-compliant site architecture and component wireframes in Figma.
+          - >-
+            Built the finished design in the GoDaddy CMS, reworking the
+            wireframes where the platform's limits demanded it.
+
+      - title: Johnson & Johnson — Global Strategy and Product Management Co-Op
+        detail: Jan 2023 – Jun 2023 · Titusville, NJ
+        highlights:
+          - >-
+            Prototyped an AI summarization tool for legacy product
+            documentation to test whether generative models could speed up
+            biomedical research work.
+          - >-
+            Automated link checking across the EP University SharePoint system
+            with PowerAutomate, tying into iMedical Search to find and report
+            broken URLs.
+
+      - title: Numerix — QA Engineer Intern
+        detail: May 2022 – Aug 2022 · New York, NY
+        highlights:
+          - >-
+            Wrote and ran 70+ new automated tests in Python and Selenium,
+            widening coverage of core product features.
+          - >-
+            Kept the CI/CD pipeline dependable by debugging and refactoring
+            15+ existing tests.
+
+      - title: NeuraFlash — Software Development Intern
+        detail: Aug 2021 – Dec 2021 · Burlington, MA
+        highlights:
+          - >-
+            Built a JavaScript Chrome extension for Salesforce's Einstein Bot
+            Builder — five quality-of-life features that automate repetitive
+            UI chores — which three developers on the team picked up.
+          - >-
+            Wrote Apex unit tests for two production chatbot projects,
+            surfacing regressions early and saving days of downstream work.
+
+      - title: Johnson & Johnson — Corporate Business Technology Co-Op
+        detail: Jan 2021 – May 2021 · New Brunswick, NJ
+        highlights:
+          - >-
+            Replaced the Legal and Compliance request intake process with an
+            automated PowerApps workflow.
+          - >-
+            Built a Confluence dashboard the dev team used to run its weekly
+            Agile stand-ups.
+
+  - heading: Projects
+    entries:
+      - title: LicenseGuard — Python · FastAPI · PostgreSQL · Docker · LangChain
+        detail: Jul 2025 – Dec 2025
+        highlights:
+          - >-
+            A containerized REST API (FastAPI + async SQLAlchemy) that
+            automates software license and dependency analysis; four versioned
+            releases published to Docker Hub and GHCR.
+          - >-
+            Uses LangChain to parse technical data into structured JSON
+            compatibility reports, persisted through one dialect-agnostic
+            SQL data layer.
 
   - heading: Skills
     entries:
-      - title: HTML · CSS · Accessibility
-        detail: the core kit
-      - title: JavaScript · TypeScript                  # PLACEHOLDER
-        detail: when it earns its bytes
-      - title: Eleventy · Git · Linux                   # PLACEHOLDER
-        detail: tooling
+      - title: Python · SQL (PostgreSQL) · TypeScript
+        detail: languages
+      - title: FastAPI · OpenAPI · Alembic · Celery · Redis
+        detail: backend & APIs
+      - title: MCP · FastMCP · LangChain · LangSmith · Amazon Bedrock · Prompt-Injection Guardrails
+        detail: AI & LLM systems
+      - title: AWS · Terraform · Docker · GitHub Actions · Statsig
+        detail: cloud & devops
+      - title: ECS · Lambda · RDS · DynamoDB · S3 · SQS · Cognito · Secrets Manager · EventBridge · CloudFront · API Gateway
+        detail: AWS services
+      - title: PyTest · Git · Claude Code · OpenSpec
+        detail: testing & tooling
 
   - heading: Education
     entries:
-      - title: Your University — B.S. Something         # PLACEHOLDER
-        detail: 20XX
+      - title: Stevens Institute of Technology — M.S. Computer Science
+        detail: Sep 2024 – May 2025 · Hoboken, NJ
+      - title: Stevens Institute of Technology — B.S. Computer Science
+        detail: Aug 2019 – May 2024 · Hoboken, NJ
