@@ -7,6 +7,14 @@ export default function (eleventyConfig) {
   // Rewrites root-absolute URLs when --pathprefix is set (e.g. GitHub project pages)
   eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
 
+  // Posts with "draft: true" show up in `pnpm dev` but are left out of
+  // production builds; with no published posts the blog reads "under construction".
+  eleventyConfig.addPreprocessor("drafts", "md", (data) => {
+    if (data.draft && process.env.ELEVENTY_RUN_MODE === "build") {
+      return false;
+    }
+  });
+
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/fonts");
   eleventyConfig.addPassthroughCopy("src/assets");

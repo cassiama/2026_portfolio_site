@@ -2,6 +2,7 @@
 title: Recreating KOF XI's Spinning Disc in Pure CSS
 date: 2026-04-18
 tags: [css, y2k]
+draft: true
 ---
 
 PLACEHOLDER POST — replace with a real write-up of the disc build.

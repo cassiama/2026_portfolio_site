@@ -2,6 +2,7 @@
 title: Why This Site Ships Zero JavaScript
 date: 2026-03-04
 tags: [css, performance]
+draft: true
 ---
 
 PLACEHOLDER POST — replace with real writing whenever.

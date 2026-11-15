@@ -2,6 +2,7 @@
 title: Hello, World (Finally)
 date: 2026-02-10
 tags: [meta]
+draft: true
 ---
 
 PLACEHOLDER POST — replace with real writing whenever.

@@ -2,6 +2,7 @@
 title: Y2K Interfaces Were Onto Something
 date: 2026-05-26
 tags: [y2k, design]
+draft: true
 ---
 
 PLACEHOLDER POST — replace with real writing whenever.
