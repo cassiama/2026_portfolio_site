@@ -15,11 +15,15 @@ eleventyComputed:
     <div class="portrait-card">
       <p class="portrait-card__title">{{ site.role }}</p>
       <div class="portrait-card__panel">
+        {%- if about.portrait %}
+        <img class="portrait-card__photo" src="{{ about.portrait }}" alt="Portrait of {{ site.name }}" width="720" height="900">
+        {%- else %}
         <svg class="portrait-card__silhouette" viewBox="0 0 100 100" aria-hidden="true">
           <circle cx="50" cy="36" r="16"/>
           <path d="M16 94 q5 -32 34 -32 t34 32 z"/>
         </svg>
         <span class="portrait-card__note">photo coming soon</span>
+        {%- endif %}
       </div>
     </div>
     <p class="setting__tagline">{{ about.tagline }}</p>

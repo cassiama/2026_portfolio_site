@@ -3,27 +3,43 @@
 # Short playful tagline rendered in the WarioWare Inc font.
 tagline: "now loading: one developer!"
 
+# Photo for the portrait card. Remove the line to fall back to the
+# "photo coming soon" silhouette.
+portrait: /assets/portrait.jpg
+
 # The CHARACTER SETTING-style stat rows. "highlight: true" gets the
 # orange selected-pill treatment.
 facts:
   - label: Name
     value: Chancelor Assiamah
   - label: Role
-    value: Software Developer       # PLACEHOLDER
+    value: Backend & Infrastructure Engineer
   - label: Location
-    value: Planet Earth             # PLACEHOLDER
+    value: Manalapan, NJ
   - label: Focus
-    value: HTML · CSS · the web platform
+    value: Backend · AWS infrastructure · LLM pipelines
   - label: Status
-    value: Open to opportunities    # PLACEHOLDER
+    value: Open to backend & infra roles
     highlight: true
 
-# Bio paragraphs. PLACEHOLDER copy — rewrite in your own voice.
+# Bio paragraphs.
 bio:
   - >-
-    Hi — I'm Chancelor. I build for the web the old-school way: semantic
-    HTML, hand-written CSS, and a deep suspicion of shipping a megabyte
-    of JavaScript to render three paragraphs of text.
+    Hi — I'm Chancelor, a backend engineer. Right now I'm the founding
+    backend engineer at Arodus, an early-stage startup whose product
+    plugs into a company's accounting ledger and keeps watch over every
+    vendor it pays. I'm the primary engineer on the backend and wrote
+    most of it: I take a feature from a one-line ask through design,
+    schemas, and implementation to unit, integration, and end-to-end
+    tests. I also build and run the AWS infrastructure it lives on, and
+    the LLM pipelines and agent tooling that sit on top.
+  - >-
+    I got here by way of four internships and co-ops — Johnson & Johnson
+    (twice), Numerix, and NeuraFlash — plus a B.S. and M.S. in Computer
+    Science from Stevens Institute of Technology. On the side I built
+    LicenseGuard, a small fleet of services that checks a project's
+    dependencies for license trouble, and I occasionally settle idle
+    questions with a notebook and some data.
   - >-
     This site is a love letter to the Y2K era of interface design —
     specifically the PS2 port of The King of Fighters XI. Every screen
