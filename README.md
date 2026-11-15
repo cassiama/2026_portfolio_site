@@ -26,14 +26,17 @@ pnpm build    # static build into _site/
 | What | Where |
 |---|---|
 | Name, menu, social links | `src/_data/site.yaml` |
-| About-page facts, bio, tagline | `src/_data/about.yaml` |
-| Projects (one block per project) | `src/_data/projects.yaml` |
+| About-page photo, facts, bio, tagline | `src/_data/about.yaml` |
+| Projects (one block per project, any number of link buttons) | `src/_data/projects.yaml` |
 | Resume sections | `src/_data/resume.yaml` |
-| Blog posts | `src/blog/posts/*.md` (front matter: `title`, `date`, `tags`) |
+| Blog posts | `src/blog/posts/*.md` (front matter: `title`, `date`, `tags`, `draft`) |
 
-Anything marked `PLACEHOLDER` in the YAML is fake data waiting for the real
-thing. The resume "Download PDF" button points at `src/assets/resume.pdf` —
-drop a real file there (the directory is passthrough-copied).
+Posts with `draft: true` appear in `pnpm dev` but are left out of production
+builds. While no post is published, the blog page shows an "under
+construction" screen and the main-menu chip reads "soon".
+
+The resume "Download PDF" button points at `src/assets/resume.pdf`, which
+isn't in the repo yet (the directory is passthrough-copied).
 
 ## Page ⇄ KOF XI screen map
 
@@ -51,8 +54,8 @@ drop a real file there (the directory is passthrough-copied).
 ## Fonts
 
 Self-hosted in `src/fonts/`: Archivo Black, Jost (variable), M PLUS Rounded 1c
-(latin subsets from Google Fonts, OFL) and WarioWare Inc (public domain, via
-fontspace f41008).
+(latin subsets from Google Fonts, OFL) and WarioWare Inc, a fan-made font
+listed as public domain by its uploader on FontSpace (f41008).
 
 ## Deploying
 
