@@ -14,9 +14,10 @@ sections:
         detail: Jan 2026 – present · New York, NY
         highlights:
           - >-
-            Built the layer of the platform that AI agents talk to: an LLM
-            chatbot plus an MCP server that lets clients connect their own
-            agents, complete with token auth, usage quotas, prompt-injection
+            Built the layer of the platform that AI agents talk to, end to
+            end: an LLM chatbot (API, model choice, harness, and front end)
+            plus an MCP server that lets clients connect their own agents,
+            with token auth, per-user rate limits, prompt-injection
             guardrails, and end-to-end observability.
           - >-
             Shut down a route an agent could have used to leak data, by
@@ -105,6 +106,8 @@ sections:
     entries:
       - title: Python · SQL (PostgreSQL) · TypeScript
         detail: languages
+      - title: React · Next.js
+        detail: front end
       - title: FastAPI · OpenAPI · Alembic · Celery · Redis
         detail: backend & APIs
       - title: MCP · FastMCP · LangChain · LangSmith · Amazon Bedrock · Prompt-Injection Guardrails
