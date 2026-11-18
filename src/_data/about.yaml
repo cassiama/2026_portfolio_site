@@ -28,11 +28,12 @@ bio:
     Hi — I'm Chancelor, a backend engineer. Right now I'm the founding
     backend engineer at Arodus, an early-stage startup whose product
     plugs into a company's accounting ledger and keeps watch over every
-    vendor it pays. I'm the primary engineer on the backend and wrote
-    most of it: I take a feature from a one-line ask through design,
-    schemas, and implementation to unit, integration, and end-to-end
-    tests. I also build and run the AWS infrastructure it lives on, and
-    the LLM pipelines and agent tooling that sit on top.
+    vendor it pays. I'm the primary engineer on the backend and authored
+    most of it, working AI-assisted: I scope each feature, design the
+    schemas and APIs, direct the implementation, and own the unit,
+    integration, and end-to-end tests and the deploys. I built the
+    customer-facing chatbot and the MCP server end to end, and I build
+    and run the AWS infrastructure all of it lives on.
   - >-
     I got here by way of four internships and co-ops — Johnson & Johnson
     (twice), Numerix, and NeuraFlash — plus a B.S. and M.S. in Computer
