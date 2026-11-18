@@ -56,31 +56,92 @@
   grid-template-columns: repeat(3, 1fr);
 }
 
-/* the little KOF orbit doodle, top right */
-.orbit-deco {
+/* the KOF orbit: a static tilted ellipse with dots, plus an emblem whose
+   ring of text is the only moving part */
+.orbit {
+  --orbit-line: #33b5e5;
+  --orbit-dot: #2459b8;
   position: absolute;
-  right: clamp(1.5rem, 7vw, 6rem);
-  top: clamp(2.2rem, 7vmin, 4.6rem);
-  width: clamp(140px, 22vmin, 230px);
-  height: clamp(56px, 9vmin, 95px);
-  border: 2px solid var(--blue-deep);
-  border-radius: 50%;
-  rotate: -10deg;
-  animation: orbit-wobble 14s linear infinite;
+  right: clamp(1rem, 4vw, 3rem);
+  top: clamp(1rem, 3vmin, 2rem);
+  width: var(--orbit-w);
+  aspect-ratio: 460 / 220;
+  pointer-events: none;
 }
 
-.orbit-deco i {
-  position: absolute;
-  border-radius: 50%;
-  background: var(--blue-deep);
+/* leave room in the header so the orbit never runs into the date bar */
+.stage__head {
+  --orbit-w: clamp(280px, 42vmin, 440px);
+  min-height: calc(var(--orbit-w) * 220 / 460 + clamp(1rem, 3vmin, 2rem) + 0.5rem);
 }
 
-.orbit-deco i:nth-child(1) { width: 16px; height: 16px; left: 12%; bottom: -8px; }
-.orbit-deco i:nth-child(2) { width: 9px; height: 9px; right: -4px; top: 28%; }
-.orbit-deco i:nth-child(3) { width: 12px; height: 12px; right: 28%; top: -6px; }
+/* narrow screens: drop the orbit below the title instead of behind it */
+@media (max-width: 640px) {
+  .stage__head { min-height: 0; }
 
-@keyframes orbit-wobble {
-  to { rotate: 350deg; }
+  .orbit {
+    position: relative;
+    right: auto;
+    top: auto;
+    width: min(260px, 70%);
+    margin: 0.8rem 0 0 auto;
+  }
+}
+
+.orbit__path {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.orbit__line {
+  fill: none;
+  stroke: var(--orbit-line);
+  stroke-width: 2;
+}
+
+.orbit__dot { fill: var(--orbit-dot); }
+
+/* emblem center = the ellipse point at 40°, in viewBox percentages */
+.orbit__emblem {
+  position: absolute;
+  left: 84.2%;
+  top: 57%;
+  width: 23.5%;
+  aspect-ratio: 1;
+  translate: -50% -50%;
+}
+
+.orbit__disc,
+.orbit__ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.orbit__teal { fill: var(--teal-deep); }
+.orbit__edge { fill: none; stroke: #fff; stroke-width: 1.2; opacity: 0.7; }
+.orbit__white { fill: #fff; }
+.orbit__pale { fill: #f2fbf7; }
+.orbit__leaf { fill: #4cc785; }
+
+.orbit__ring {
+  animation: orbit-spin 22s linear infinite;
+}
+
+.orbit__ring text {
+  fill: #fff;
+  font-family: var(--font-display);
+  font-size: 12px;
+}
+
+@keyframes orbit-spin {
+  to { transform: rotate(1turn); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orbit__ring { animation: none; }
 }
 
 /* Next Stage horizontal bars */
