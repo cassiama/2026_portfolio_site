@@ -7,9 +7,10 @@ export default function (eleventyConfig) {
   // Rewrites root-absolute URLs when --pathprefix is set (e.g. GitHub project pages)
   eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
 
-  // Posts with "draft: true" show up in `pnpm dev` but are left out of
-  // production builds; with no published posts the blog reads "under construction".
-  eleventyConfig.addPreprocessor("drafts", "md", (data) => {
+  // Pages and posts with "draft: true" show up in `pnpm dev` but are left
+  // out of production builds. The blog index and its posts are drafts until
+  // there is something worth publishing.
+  eleventyConfig.addPreprocessor("drafts", "md,njk", (data) => {
     if (data.draft && process.env.ELEVENTY_RUN_MODE === "build") {
       return false;
     }

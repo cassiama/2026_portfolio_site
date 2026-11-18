@@ -17,7 +17,7 @@ permalink: /
         {%- if item.count == "projects" %}
         <span class="menu__chip">{{ projects | length | pad2 }}</span>
         {%- elif item.count == "posts" %}
-        <span class="menu__chip">{% if collections.post | length %}{{ collections.post | length | pad2 }}{% else %}soon{% endif %}</span>
+        <span class="menu__chip">{{ collections.post | length | pad2 }}</span>
         {%- endif %}
       </a>
     </li>

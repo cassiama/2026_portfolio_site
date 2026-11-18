@@ -12,6 +12,11 @@ year: 2026
 
 # Main menu (home page pills). "count" pulls a live number in the
 # little chip after the pill: "projects" or "posts".
+# The blog is hidden for now. To bring it back, drop `draft: true` from
+# src/blog/index.njk and the posts, and add this pill after Projects:
+#   - label: Blog
+#     url: /blog/
+#     count: posts
 menu:
   primary:
     - label: About Me
@@ -19,9 +24,6 @@ menu:
     - label: Projects
       url: /projects/
       count: projects
-    - label: Blog
-      url: /blog/
-      count: posts
   secondary:
     - label: Contact
       url: /contact/

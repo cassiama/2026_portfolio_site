@@ -31,9 +31,11 @@ pnpm build    # static build into _site/
 | Resume sections | `src/_data/resume.yaml` |
 | Blog posts | `src/blog/posts/*.md` (front matter: `title`, `date`, `tags`, `draft`) |
 
-Posts with `draft: true` appear in `pnpm dev` but are left out of production
-builds. While no post is published, the blog page shows an "under
-construction" screen and the main-menu chip reads "soon".
+Pages and posts with `draft: true` appear in `pnpm dev` but are left out of
+production builds. The blog index and all posts are drafts, and the Blog pill
+is commented out of `site.yaml`, so the blog isn't on the live site yet. To
+publish it, drop `draft: true` from `src/blog/index.njk` and the posts you
+want live, and restore the pill (the snippet is in `site.yaml`).
 
 The resume "Download PDF" button points at `src/assets/resume.pdf`, which
 isn't in the repo yet (the directory is passthrough-copied).
